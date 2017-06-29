@@ -19,22 +19,30 @@ namespace UC_ContactOpnemen.UI
             }
             else
             {
-                btSend.Attributes.Add("onclick", "return ConfirmOnDelete()");
+                if (!cbAnoniem.Checked)
+                {
+                    //Gebruiker vragen of hij of zij wilt inloggen
+                    btSend.Attributes.Add("onclick", "return ConfirmOnClick()");
+                }
+                else
+                {
+                    btSend.Attributes.Remove("onclick");
+                }
             }
-            
 
-            //if (!this.IsPostBack)
-            //{
-            //    this.BindGrid();
-            //}
+
+            if (!this.IsPostBack)
+            {
+                this.BindGrid();
+            }
         }
 
-        //private void BindGrid()
-        //{
-        //    CCGetSupervisors gs = new CCGetSupervisors();
-        //    gvGetSupervisors.DataSource = gs.ReturnSupervisors();
-        //    gvGetSupervisors.DataBind();
-        //}
+        private void BindGrid()
+        {
+            CCGetSupervisors gs = new CCGetSupervisors();
+            gvGetSupervisors.DataSource = gs.ReturnSupervisors();
+            gvGetSupervisors.DataBind();
+        }
 
         protected void btSend_Click(object sender, EventArgs e)
         {

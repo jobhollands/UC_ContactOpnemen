@@ -32,13 +32,13 @@
 
         <asp:CheckBox ID="cbAnoniem" runat="server" AutoPostBack="True" OnCheckedChanged="cbAnoniem_CheckedChanged" Text="Anoniem" />
 
-
+            
 
     <script type="text/javascript" language="javascript">
-        function ConfirmOnDelete()
+        function ConfirmOnClick()
         {
-          if (confirm("U bent niet ingelogd, wilt u inloggen?")==true)
-              return Response.Redirect("~/UI/Login.aspx")
+          if (confirm("U bent niet ingelogd, bericht toch versturen?")==true)
+              return true
           else
               return false;
         }
