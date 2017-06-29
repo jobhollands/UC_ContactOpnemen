@@ -15,11 +15,14 @@ namespace WebFormsIdentity
             var userStore = new UserStore<IdentityUser>();
             var manager = new UserManager<IdentityUser>(userStore);
             var user = new IdentityUser() { UserName = UserName.Text };
+            user.Email = Email.Text;
+            user.PhoneNumber = Phonenumber.Text;
 
             IdentityResult result = manager.Create(user, Password.Text);
 
             if (result.Succeeded)
             {
+                manager.AddToRole(user.Id, Role.SelectedItem.Text);
                 var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
                 var userIdentity = manager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
                 authenticationManager.SignIn(new AuthenticationProperties() { }, userIdentity);

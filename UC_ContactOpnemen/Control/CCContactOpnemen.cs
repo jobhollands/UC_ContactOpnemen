@@ -18,5 +18,11 @@ namespace UC_ContactOpnemen.CC
                 return false;
             }
         }
+
+        public string GetEmailAdress(string userID)
+        {
+            return new IdentityExtensions().GetEmailAdress(userID); 
+
+        }
     }
 }

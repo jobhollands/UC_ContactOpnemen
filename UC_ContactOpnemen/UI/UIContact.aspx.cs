@@ -6,34 +6,40 @@ namespace UC_ContactOpnemen.UI
 {
     public partial class UIContact : System.Web.UI.Page
     {
-        private bool _userIsLoggedIn;
-        private string _userID;
+        private static string _userID;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Checken of gebruiker is ingelogd
-            _userIsLoggedIn = User.Identity.IsAuthenticated;
-            if (_userIsLoggedIn)
+            if (!IsPostBack)
             {
-                //UserID verkrijgen
-                _userID = User.Identity.GetUserId();
+                BindGrid();
             }
-            else
+
+            if (User.Identity.IsAuthenticated)
             {
                 if (!cbAnoniem.Checked)
                 {
-                    //Gebruiker vragen of hij of zij wilt inloggen
-                    btSend.Attributes.Add("onclick", "return ConfirmOnClick()");
+                    //UserID verkrijgen
+                    _userID = User.Identity.GetUserId();
+                    tbName.Text = User.Identity.GetUserName();
+                    tbEmail.Text = new CCContactOpnemen().GetEmailAdress(_userID);
                 }
                 else
                 {
+                    _userID = null;
+                }
+
+                btSend.Attributes.Remove("onclick");
+            }
+            else
+            {
+                _userID = null;
+                //Gebruiker vragen of hij of zij wilt inloggen
+                btSend.Attributes.Add("onclick", "return ConfirmOnClick()");
+
+                if (cbAnoniem.Checked)
+                {
                     btSend.Attributes.Remove("onclick");
                 }
-            }
-
-
-            if (!this.IsPostBack)
-            {
-                this.BindGrid();
             }
         }
 

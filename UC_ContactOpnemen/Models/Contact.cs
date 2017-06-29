@@ -16,6 +16,7 @@ namespace ContactOpnemen.BU
                 using (DB_ContactOpnemen context = new DB_ContactOpnemen())
                 {
                     Contact contact = new Contact();
+
                     contact.AspNetUsersId = userId;
                     contact.Name = name;
                     contact.Email = email;

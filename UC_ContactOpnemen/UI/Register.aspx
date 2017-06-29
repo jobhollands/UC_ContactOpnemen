@@ -58,21 +58,56 @@
              ErrorMessage="'Bevestig wactwoord' is een verplicht veld"
              EnableClientScript="true"
              SetFocusOnError="true"
+         >*</asp:RequiredFieldValidator>
+               
+                        <div style="margin-bottom:10px">
+            <asp:Label runat="server" AssociatedControlID="Email">E-mailadres</asp:Label>
+            <div>
+                <asp:TextBox runat="server" ID="Email" />                
 
-         
+     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
+             ControlToValidate="Email"
+             ErrorMessage="Email is verplicht"
+             EnableClientScript="true"
+             SetFocusOnError="true"
+         >*</asp:RequiredFieldValidator>
+               
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="Email" Display="None" ErrorMessage="Voer een geldig emailadres in" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+            </div>
+        </div>
+                        <div style="margin-bottom:10px">
+            <asp:Label runat="server" AssociatedControlID="Phonenumber">Telefoonnummer</asp:Label>
+            <div>
+                <asp:TextBox runat="server" ID="Phonenumber" />                
+
+     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
+             ControlToValidate="Phonenumber"
+             ErrorMessage="Telefoonnummer is verplicht"
+             EnableClientScript="true"
+             SetFocusOnError="true"
          >*</asp:RequiredFieldValidator>
                
             </div>
         </div>
-        <div>
-            <div>
-                <asp:Button runat="server" OnClick="CreateUser_Click" Text="Registreer" />
             </div>
         </div>
-    </div>
+        <div>
+            <div>
+                        <div style="margin-bottom:10px">
+            <asp:Label runat="server" AssociatedControlID="Role">Gebruikersrol</asp:Label>
+            <div>
+                <asp:DropDownList runat="server" ID="Role" >
+                    <asp:ListItem>Admin</asp:ListItem>
+                    <asp:ListItem>Student</asp:ListItem>
+                    <asp:ListItem>Supervisor</asp:ListItem>
+                    <asp:ListItem>Teacher</asp:ListItem>
+                    <asp:ListItem>User</asp:ListItem>
+                </asp:DropDownList>
         <br />
-        <asp:ValidationSummary ID="ValidationSummary1" runat="server" DisplayMode="List" />
         <p>
+        
+                <asp:Button runat="server" OnClick="CreateUser_Click" Text="Registreer" />
+            <asp:ValidationSummary ID="ValidationSummary1" runat="server" DisplayMode="List" />
 
     </form>
 </body>
