@@ -183,6 +183,9 @@
     <Compile Include="C__MigrationHistory.cs">
       <DependentUpon>ContactOpnemenDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="C__MigrationHistory1.cs">
+      <DependentUpon>ContactOpnemenDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

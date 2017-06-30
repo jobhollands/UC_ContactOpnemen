@@ -13,20 +13,29 @@ namespace ContactOpnemen.BU
 
             SqlConnection conn = new SqlConnection(connString);
             SqlCommand cmd = new SqlCommand(query, conn);
-            conn.Open();
-
-            // create data adapter
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            // this will query your database and return the result to your datatable
             dt = new DataTable();
 
-            da.Fill(dt);
+            try
+            {
+                conn.Open();
 
-            conn.Close();
+                // create data adapter
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                // this will query your database and return the result to your datatable
 
-            da.Dispose();
 
-            return dt;
+                da.Fill(dt);
+
+                conn.Close();
+
+                da.Dispose();
+
+                return dt;
+            }
+            catch
+            {
+                return dt;
+            }
         }
     }
 }

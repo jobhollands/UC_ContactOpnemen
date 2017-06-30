@@ -31,5 +31,6 @@ namespace ContactOpnemen.BU
         public virtual DbSet<AspNetUserLogins> AspNetUserLogins { get; set; }
         public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
         public virtual DbSet<Contact> ContactSet { get; set; }
+        public virtual DbSet<C__MigrationHistory1> C__MigrationHistory1Set { get; set; }
     }
 }
