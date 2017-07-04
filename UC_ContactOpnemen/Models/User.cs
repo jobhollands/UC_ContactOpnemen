@@ -6,6 +6,12 @@ namespace ContactOpnemen.BU
     public partial class AspNetUsers
     {
         private static DataTable dt;
+
+        /// <summary>
+        /// This method returns all supervisors with their Username and accountrole name
+        /// In the future this method will be updated; than it needs to return the first name, last name and phonenumber of all supervisors
+        /// </summary>
+        /// <returns></returns>
         public DataTable GetSupervisors()
         {
             string connString = @"Data Source=casus.database.windows.net;Initial Catalog=DB_ContactOpnemen;Integrated Security=False;User ID=casusB2D3;Password=Qwerty1$;MultipleActiveResultSets=True;Connect Timeout=15;Encrypt=True;TrustServerCertificate=False;Application Name=EntityFramework;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";

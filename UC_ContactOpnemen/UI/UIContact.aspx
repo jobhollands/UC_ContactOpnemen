@@ -9,20 +9,6 @@
 <body>
     <form id="form1" runat="server">
         <div>
-                             <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="False" IncludeStyleBlock="False" Orientation="Horizontal" BackColor="#FFFBD6" DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#990000" StaticSubMenuIndent="10px">
-                     <DynamicHoverStyle BackColor="#990000" ForeColor="White" />
-                     <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
-                     <DynamicMenuStyle BackColor="#FFFBD6" />
-                     <DynamicSelectedStyle BackColor="#FFCC66" />
-                    <Items>
-                        <asp:MenuItem NavigateUrl="~/UI/Login.aspx" Text="Login"/>
-                        <asp:MenuItem NavigateUrl="~/UI/Register.aspx" Text="Registreer"/>
-                        <asp:MenuItem NavigateUrl="~/UI/UIContact.aspx" Text="Contact"/>                        
-                    </Items>
-                     <StaticHoverStyle BackColor="#990000" ForeColor="White" />
-                     <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
-                     <StaticSelectedStyle BackColor="#FFCC66" />
-                </asp:Menu>
                     <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
 
         <asp:Label ID="lbName" runat="server" Text="Naam"></asp:Label>

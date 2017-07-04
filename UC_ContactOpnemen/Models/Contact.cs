@@ -8,7 +8,17 @@ namespace ContactOpnemen.BU
     public partial class Contact
     {
         private string _contactEmailadress = "zuydergotherapie@gmail.com";
-
+        
+        /// <summary>
+        /// This method saves the contact information in the database.
+        /// After it is successfully saved the method sendMail will invoke
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="email"></param>
+        /// <param name="subject"></param>
+        /// <param name="message"></param>
+        /// <param name="user"></param>
+        /// <returns></returns>
         public bool saveMail(string name, string email, string subject, string message, string userId)
         {
             try
@@ -46,6 +56,14 @@ namespace ContactOpnemen.BU
             }
         }
 
+        /// <summary>
+        /// This method sends an email
+        /// </summary>
+        /// <param name="toEmailadress"></param>
+        /// <param name="fromEmailadress"></param>
+        /// <param name="name"></param>
+        /// <param name="subject"></param>
+        /// <param name="message"></param>
         public void sendMail(string toEmailadress, string fromEmailadress, string name, string subject, string message)
         {
             using (MailMessage mm = new MailMessage(ConfigurationManager.AppSettings["SMTPuser"], toEmailadress))
